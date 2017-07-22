@@ -22,7 +22,9 @@ module OmniAuth
       info do
         prune!({
           :name       => raw_info['name'],
+          :nickname   => raw_info['nickname'],
           :email      => raw_info['email'],
+          :picture    => raw_info['picture'],
           :first_name => raw_info['given_name'],
           :last_name  => raw_info['family_name'],
           :uid        => raw_info['sub'],
