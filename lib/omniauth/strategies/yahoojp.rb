@@ -8,8 +8,8 @@ module OmniAuth
       option :name, 'yahoojp'
       option :client_options, {
         :site => 'https://auth.login.yahoo.co.jp',
-        :authorize_url => '/yconnect/v1/authorization',
-        :token_url => '/yconnect/v1/token',
+        :authorize_url => '/yconnect/v2/authorization',
+        :token_url => '/yconnect/v2/token',
         :auth_scheme => :basic_auth
       }
 
@@ -19,7 +19,7 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['user_id'] }
+      uid { raw_info['sub'] }
 
       info do
         prune!({
@@ -41,7 +41,7 @@ module OmniAuth
 
       def raw_info
         access_token.options[:mode] = :header
-        @raw_info ||= access_token.get('https://userinfo.yahooapis.jp/yconnect/v1/attribute?schema=openid').parsed
+        @raw_info ||= access_token.get('https://userinfo.yahooapis.jp/yconnect/v2/attribute?schema=openid').parsed
       end
 
       def prune!(hash)
