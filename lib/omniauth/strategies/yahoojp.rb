@@ -19,7 +19,7 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['sub'] }
+      uid { '太郎' }
 
       info do
         prune!({
