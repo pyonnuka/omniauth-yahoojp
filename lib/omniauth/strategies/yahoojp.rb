@@ -25,7 +25,6 @@ module OmniAuth
         prune!({
           :name       => raw_info['name'],
           :email      => raw_info['email'],
-          :uid        => raw_info['sub'],
           :first_name => raw_info['given_name'],
           :last_name  => raw_info['family_name'],
           :urls => {
