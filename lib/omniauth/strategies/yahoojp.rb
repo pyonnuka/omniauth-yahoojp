@@ -19,14 +19,13 @@ module OmniAuth
         super
       end
 
-      uid { '太郎' }
-
       info do
         prune!({
           :name       => raw_info['name'],
           :email      => raw_info['email'],
           :first_name => raw_info['given_name'],
           :last_name  => raw_info['family_name'],
+          :uid        => raw_info['sub'],
           :urls => {
             'YahooJp' => raw_info['link'],
           },
